@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CheckoutPrinter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ShoppingInTheSupermarket&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">shoppinginthesupermarket</a> &gt; <span class="el_source">CheckoutPrinter.java</span></div><h1>CheckoutPrinter.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shoppinginthesupermarket;
+
+import java.math.BigDecimal;
+
+/**
+ *
+ * @author oracle
+ */
+class CheckoutPrinter {
+
+    Receipt receipt;
+
+<span class="fc" id="L18">    public CheckoutPrinter() {</span>
+<span class="fc" id="L19">        receipt = new Receipt();</span>
+<span class="fc" id="L20">    }</span>
+
+    public void addWelcome() {
+
+<span class="fc" id="L24">        receipt.setContent(receipt.getContent() + &quot; \tWelcome to the Supermarket:\n&quot;);</span>
+<span class="fc" id="L25">        receipt.setContent(receipt.getContent() + &quot; \t*****************************\n&quot;);</span>
+<span class="fc" id="L26">        receipt.setContent(receipt.getContent() + &quot; \tMerchant ID:          2225444\n&quot;);</span>
+<span class="fc" id="L27">        receipt.setContent(receipt.getContent() + &quot; \tTerminal ID:       5489254353\n&quot;);</span>
+<span class="fc" id="L28">        receipt.setContent(receipt.getContent() + &quot; \t--------------------------------------\n&quot;);</span>
+<span class="fc" id="L29">        receipt.setContent(receipt.getContent() + &quot; \tITEMS:                                \n&quot;);</span>
+
+<span class="fc" id="L31">    }</span>
+
+    public void addItemLine(String id, BigDecimal price) {
+<span class="fc" id="L34">        price.setScale(2, BigDecimal.ROUND_HALF_UP);</span>
+<span class="fc" id="L35">        receipt.setContent(receipt.getContent() + &quot;\t &quot; + id + &quot;: &quot; + price + &quot; \n&quot;);</span>
+<span class="fc" id="L36">    }</span>
+
+    public void addTotalWithoutDiscounts(BigDecimal totalWithoutDiscounts) {
+<span class="fc" id="L39">        totalWithoutDiscounts.setScale(2, BigDecimal.ROUND_HALF_UP);</span>
+<span class="fc" id="L40">        receipt.setContent(receipt.getContent() + &quot; \t--------------------------------------\n&quot;);</span>
+<span class="fc" id="L41">        receipt.setContent(receipt.getContent() + &quot; \tTotal: &quot; + totalWithoutDiscounts + &quot;\n&quot;);</span>
+<span class="fc" id="L42">    }</span>
+
+    public void addDiscounts(BigDecimal totaldiscounts) {
+<span class="fc" id="L45">        totaldiscounts.setScale(2, BigDecimal.ROUND_HALF_UP);</span>
+<span class="fc" id="L46">        receipt.setContent(receipt.getContent() + &quot; \tTotal discounts: &quot; + totaldiscounts + &quot;\n&quot;);</span>
+<span class="fc" id="L47">    }</span>
+
+    public void addTotalWithDiscounts(BigDecimal total) {
+<span class="fc" id="L50">        total.setScale(2, BigDecimal.ROUND_HALF_UP);</span>
+<span class="fc" id="L51">        receipt.setContent(receipt.getContent() + &quot; \t--------------------------------------\n&quot;);</span>
+<span class="fc" id="L52">        receipt.setContent(receipt.getContent() + &quot; \tTotal with discounts: &quot; + total + &quot;\n&quot;);</span>
+<span class="fc" id="L53">    }</span>
+
+    public void addFarewell() {
+<span class="fc" id="L56">        receipt.setContent(receipt.getContent() + &quot; \t*****************************\n&quot;);</span>
+<span class="fc" id="L57">        receipt.setContent(receipt.getContent() + &quot;\t      Thanks for shopping!\n&quot;);</span>
+<span class="fc" id="L58">        receipt.setContent(receipt.getContent() + &quot; \t*****************************\n&quot;);</span>
+<span class="fc" id="L59">    }</span>
+
+    public Receipt getReceipt() {
+
+<span class="fc" id="L63">        addFarewell();</span>
+<span class="fc" id="L64">        return receipt;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

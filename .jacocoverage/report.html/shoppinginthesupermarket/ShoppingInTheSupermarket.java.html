@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ShoppingInTheSupermarket.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ShoppingInTheSupermarket&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">shoppinginthesupermarket</a> &gt; <span class="el_source">ShoppingInTheSupermarket.java</span></div><h1>ShoppingInTheSupermarket.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shoppinginthesupermarket;
+
+import java.math.BigDecimal;
+import shoppinginthesupermarket.specialofferprocessors.SOPBuyTwoForSpecialPrice;
+import shoppinginthesupermarket.specialofferprocessors.SOPBuyThreeCheapestFree;
+import shoppinginthesupermarket.specialofferprocessors.SOPBuyThreePayTwo;
+import shoppinginthesupermarket.specialofferprocessors.SOPBuySeveralXgetseveralYFree;
+import shoppinginthesupermarket.specialofferprocessors.SpecialOfferProcessor;
+import shoppinginthesupermarket.specialoffers.Buy2ForSpecialPrice;
+import shoppinginthesupermarket.specialoffers.Buy3CheapestFree;
+import shoppinginthesupermarket.specialoffers.Buy3Pay2;
+import shoppinginthesupermarket.specialoffers.SeveralXgetseveralY;
+import shoppinginthesupermarket.specialoffers.SpecialOffer;
+
+/**
+ *
+ * @author oracle
+ */
+<span class="nc" id="L24">public class ShoppingInTheSupermarket {</span>
+
+    public static void main(String[] args) {
+
+<span class="nc" id="L28">        SpecialOfferProcessor SOPbuy2Special = new SOPBuyTwoForSpecialPrice();</span>
+<span class="nc" id="L29">        SpecialOfferProcessor SOPBuy3CheapestFree = new SOPBuyThreeCheapestFree();</span>
+
+<span class="nc" id="L31">        Supermarket supermarket = new Supermarket();</span>
+
+<span class="nc" id="L33">        SpecialOfferProcessor SOPBuy3Pay2 = new SOPBuyThreePayTwo();</span>
+<span class="nc" id="L34">        SpecialOfferProcessor SOPseveralXGetY = new SOPBuySeveralXgetseveralYFree();</span>
+
+<span class="nc" id="L36">        SpecialOffer threePay2 = new Buy3Pay2(30, SOPBuy3Pay2);</span>
+<span class="nc" id="L37">        SpecialOffer several = new SeveralXgetseveralY(40, SOPseveralXGetY, &quot;pizza&quot;, &quot;ketchup&quot;, 3, 2);</span>
+<span class="nc" id="L38">        SpecialOffer several2 = new SeveralXgetseveralY(41, SOPseveralXGetY, &quot;potatoes&quot;, &quot;greenBeans&quot;, 1, 2);</span>
+
+<span class="nc" id="L40">        supermarket.addSpecialOffer(threePay2);</span>
+<span class="nc" id="L41">        supermarket.addSpecialOffer(several);</span>
+<span class="nc" id="L42">        supermarket.addSpecialOffer(several2);</span>
+
+<span class="nc" id="L44">        Trolley trolley = new Trolley(null);</span>
+
+<span class="nc" id="L46">        Item pizza = new Item(&quot;pizza&quot;, new BigDecimal(&quot;3.50&quot;), several);</span>
+<span class="nc" id="L47">        Item ketchup = new Item(&quot;ketchup&quot;, new BigDecimal(&quot;2&quot;), several);</span>
+
+<span class="nc" id="L49">        Item potatoes = new Item(&quot;potatoes&quot;, new BigDecimal(&quot;2.5&quot;), several2);</span>
+<span class="nc" id="L50">        Item greenBeans = new Item(&quot;greenBeans&quot;, new BigDecimal(&quot;1.5&quot;), several2);</span>
+
+<span class="nc" id="L52">        Item pear = new Item(&quot;pear&quot;, new BigDecimal(&quot;0.3&quot;));</span>
+
+<span class="nc" id="L54">        trolley.addItem(ketchup);</span>
+<span class="nc" id="L55">        trolley.addItem(potatoes);</span>
+<span class="nc" id="L56">        trolley.addItem(potatoes);</span>
+<span class="nc" id="L57">        trolley.addItem(greenBeans);</span>
+<span class="nc" id="L58">        Item sirloin = new Item(&quot;sirloin&quot;, new BigDecimal(&quot;3.42&quot;), threePay2);</span>
+<span class="nc" id="L59">        Item lettuce = new Item(&quot;lettuce&quot;, new BigDecimal(&quot;0.50&quot;), threePay2);</span>
+<span class="nc" id="L60">        Item onion = new Item(&quot;onion&quot;, new BigDecimal(&quot;0.25&quot;), threePay2);</span>
+<span class="nc" id="L61">        trolley.addItem(greenBeans);</span>
+<span class="nc" id="L62">        trolley.addItem(greenBeans);</span>
+<span class="nc" id="L63">        trolley.addItem(pizza);</span>
+<span class="nc" id="L64">        trolley.addItem(pizza);</span>
+<span class="nc" id="L65">        trolley.addItem(ketchup);</span>
+
+<span class="nc" id="L67">        trolley.addItem(ketchup);</span>
+<span class="nc" id="L68">        trolley.addItem(pizza);</span>
+<span class="nc" id="L69">        trolley.addItem(pear);</span>
+
+<span class="nc" id="L71">        supermarket.checkOut(trolley);</span>
+
+//        SpecialOffer twoSpecialPrice = new Buy2ForSpecialPrice(10, SOPbuy2Special, new BigDecimal(&quot;20&quot;));
+//        SpecialOffer twoSpecialPrice2ndOffer = new Buy2ForSpecialPrice(11, SOPbuy2Special, new BigDecimal(&quot;30&quot;));
+//        SpecialOffer threeCheapestFree = new Buy3CheapestFree(20, SOPBuy3CheapestFree);
+//        SpecialOffer threeCheapestFree2ndOffer = new Buy3CheapestFree(21, SOPBuy3CheapestFree);
+//        SpecialOffer threePay2 = new Buy3Pay2(30, SOPBuy3Pay2);
+//        SpecialOffer threePay2_2 = new Buy3Pay2(31, SOPBuy3Pay2);
+//
+//        supermarket.addSpecialOffer(twoSpecialPrice);
+//        supermarket.addSpecialOffer(twoSpecialPrice2ndOffer);
+//        supermarket.addSpecialOffer(threeCheapestFree);
+//        supermarket.addSpecialOffer(threeCheapestFree2ndOffer);
+//
+//        supermarket.addSpecialOffer(threePay2_2);
+//
+//       
+//        Item tuna = new Item(&quot;tuna&quot;, new BigDecimal(&quot;2&quot;), threePay2);
+//        Item sardines = new Item(&quot;sardines&quot;, new BigDecimal(&quot;1&quot;), threePay2);
+//        Item cod = new Item(&quot;cod&quot;, new BigDecimal(&quot;3.25&quot;), threePay2);
+//        Item haddok = new Item(&quot;haddok&quot;, new BigDecimal(&quot;3&quot;), threePay2);
+//        Item ham = new Item(&quot;ham&quot;, new BigDecimal(&quot;1.50&quot;), threePay2);
+//
+//        Item foitgras = new Item(&quot;foitgras&quot;, new BigDecimal(&quot;3&quot;), threePay2);
+//        Item pizza = new Item(&quot;pizza&quot;, new BigDecimal(&quot;3.50&quot;), threePay2);
+//        Item ketchup = new Item(&quot;ketchup&quot;, new BigDecimal(&quot;2&quot;), threePay2);
+//        Item mayo = new Item(&quot;mayo&quot;, new BigDecimal(&quot;100&quot;), threePay2);
+//        Item chicken = new Item(&quot;chicken&quot;, new BigDecimal(&quot;4&quot;), threePay2);
+//        Item bread = new Item(&quot;bread&quot;, new BigDecimal(&quot;0.80&quot;), threePay2);
+//        Item cereals = new Item(&quot;cereals&quot;, new BigDecimal(&quot;1.5&quot;), threePay2);
+//
+//        Item chorizo = new Item(&quot;chorizo&quot;, new BigDecimal(&quot;3.5&quot;), threeCheapestFree2);
+//
+//        Item pistaccio = new Item(&quot;pistaccio&quot;, new BigDecimal(&quot;3.5&quot;), threeCheapestFree);
+//        Item beans = new Item(&quot;beans&quot;, new BigDecimal(&quot;1&quot;), threeCheapestFree);
+//
+////        supermarket.addSpecialOffer(threePay2_2);
+////        supermarket.addSpecialOffer(several2);
+////        Trolley trolley = new Trolley(null);
+////        trolley.addItem(pear);
+////        trolley.addItem(pear);
+////        trolley.addItem(pear);
+////        trolley.addItem(apple);
+////         trolley.addItem(apple);
+////        Buy3CheapestFree
+////        trolley.addItem(noodles);
+////        trolley.addItem(rice);
+////  
+////        trolley.addItem(chorizo);
+////        trolley.addItem(cheese);
+////        trolley.addItem(oil);
+////        trolley.addItem(chickpeas);
+////        trolley.addItem(pistaccio);
+////        trolley.addItem(beans);
+////        Buy3Pay2
+////        trolley.addItem(apple);
+////        trolley.addItem(apricots);
+////        several
+////        trolley.addItem(garlic);
+////        trolley.addItem(garlic);
+////        trolley.addItem(garlic);
+////        trolley.addItem(milk);
+////        trolley.addItem(milk);
+////        trolley.addItem(milk);
+////        trolley.addItem(milk);
+////
+//////        trolley.addItem(potatoes);
+////         trolley.addItem(potatoes);
+////           trolley.addItem(potatoes);
+////        trolley.addItem(greenBeans);
+////                trolley.addItem(greenBeans);
+////                trolley.addItem(greenBeans);
+//        //Two special
+////        Item yogurt = new Item(&quot;yogurt&quot;, new BigDecimal(&quot;100&quot;), twoSpecialPrice);
+////        Item apricots = new Item(&quot;apricots&quot;, new BigDecimal(&quot;100&quot;), twoSpecialPrice);
+////        
+////        Item tomato = new Item(&quot;tomato&quot;, new BigDecimal(&quot;100&quot;), twoSpecialPrice2);
+////        Item guerkins = new Item(&quot;guerkins&quot;, new BigDecimal(&quot;100&quot;), twoSpecialPrice2);
+////        
+////        trolley.addItem(yogurt);
+////        trolley.addItem(apricots);
+////        
+////        trolley.addItem(tomato);
+////        trolley.addItem(guerkins);
+//        //3cheapestfree
+////             
+////        Item noodles = new Item(&quot;noodles&quot;, new BigDecimal(&quot;100&quot;), threeCheapestFree);
+////        Item rice = new Item(&quot;rice&quot;, new BigDecimal(&quot;100&quot;), threeCheapestFree);
+////
+////         Item cheese = new Item(&quot;cheese&quot;, new BigDecimal(&quot;100&quot;), threeCheapestFree2);
+////        Item oil = new Item(&quot;olive oil&quot;, new BigDecimal(&quot;100&quot;), threeCheapestFree2);
+////        Item chickpeas = new Item(&quot;chick peas&quot;, new BigDecimal(&quot;100&quot;), threeCheapestFree2);
+////        
+////         trolley.addItem(pear);
+////          trolley.addItem(noodles); 
+////          trolley.addItem(rice);
+////          
+////          trolley.addItem(cheese);
+////          trolley.addItem(oil); 
+////          trolley.addItem(chickpeas);
+//        //3pay2
+////        Item olives = new Item(&quot;olives&quot;, new BigDecimal(&quot;100&quot;), threePay2);
+////        Item cucumber = new Item(&quot;cucumber&quot;, 400.0F, threePay2);
+////        Item carrot = new Item(&quot;carrot&quot;, 200.0F, threePay2);
+////
+////        Item appleJuice = new Item(&quot;appleJuice&quot;, new BigDecimal(&quot;100&quot;), threePay2_2);
+////        Item oranges = new Item(&quot;oranges&quot;, 600.0F, threePay2_2);
+////        Item banana = new Item(&quot;banana&quot;, new BigDecimal(&quot;100&quot;), threePay2_2);
+////
+////        trolley.addItem(carrot);
+////        trolley.addItem(cucumber);
+////        trolley.addItem(olives);
+////        
+////        trolley.addItem(appleJuice);
+////        trolley.addItem(oranges);
+////        trolley.addItem(banana);
+//        //several
+//        Item apple = new Item(&quot;apple&quot;, new BigDecimal(&quot;100&quot;), several);
+//
+////        
+////        trolley.addItem(garlic);
+////        trolley.addItem(garlic);
+////        trolley.addItem(garlic);
+////        trolley.addItem(milk);
+////                trolley.addItem(milk);
+////                 trolley.addItem(milk);
+////                 trolley.addItem(milk);
+<span class="nc" id="L198">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

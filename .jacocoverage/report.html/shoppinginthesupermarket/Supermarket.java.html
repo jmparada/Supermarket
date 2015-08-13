@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Supermarket.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ShoppingInTheSupermarket&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">shoppinginthesupermarket</a> &gt; <span class="el_source">Supermarket.java</span></div><h1>Supermarket.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shoppinginthesupermarket;
+
+import shoppinginthesupermarket.specialoffers.SpecialOffer;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author oracle
+ */
+public class Supermarket {
+
+    private List&lt;SpecialOffer&gt; specialOffers;
+    private Checkout checkout;
+
+<span class="fc" id="L21">    public Supermarket() {</span>
+<span class="fc" id="L22">        this.specialOffers = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L23">        this.checkout = new Checkout();</span>
+<span class="fc" id="L24">    }</span>
+
+    public List&lt;SpecialOffer&gt; getSpecialOffers() {
+<span class="fc" id="L27">        return specialOffers;</span>
+    }
+
+    public void setSpecialOffers(List&lt;SpecialOffer&gt; specialOffers) {
+<span class="fc" id="L31">        this.specialOffers = specialOffers;</span>
+<span class="fc" id="L32">    }</span>
+
+    public void addSpecialOffer(SpecialOffer specialOffer) {
+<span class="fc" id="L35">        specialOffers.add(specialOffer);</span>
+<span class="fc" id="L36">    }</span>
+
+    
+    public void checkOut(Trolley trolley) {
+
+<span class="nc" id="L41">        checkout.setSpecialOffers(specialOffers);</span>
+
+<span class="nc" id="L43">        Receipt receipt = checkout.processTrolley(trolley);</span>
+<span class="nc" id="L44">        System.out.println(receipt.getContent());</span>
+        
+<span class="nc" id="L46">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

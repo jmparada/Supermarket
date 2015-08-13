@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SeveralXgetseveralY.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ShoppingInTheSupermarket&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">shoppinginthesupermarket.specialoffers</a> &gt; <span class="el_source">SeveralXgetseveralY.java</span></div><h1>SeveralXgetseveralY.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shoppinginthesupermarket.specialoffers;
+
+import shoppinginthesupermarket.specialofferprocessors.SpecialOfferProcessor;
+
+/**
+ *
+ * @author oracle
+ */
+public class SeveralXgetseveralY extends SpecialOffer {
+
+    int offerId;
+    String idItemX;
+    String idItemY;
+
+    int numberOfItemsX;
+    int numberOfItemsY;
+
+    public SeveralXgetseveralY(int offerId, SpecialOfferProcessor specialOfferProcessor, String idItemX, String idItemY, int numberOfItemsX, int numberOfItemsY) {
+
+<span class="fc" id="L25">        super(specialOfferProcessor);</span>
+<span class="fc" id="L26">        this.offerId = offerId;</span>
+<span class="fc" id="L27">        this.idItemX = idItemX;</span>
+<span class="fc" id="L28">        this.idItemY = idItemY;</span>
+<span class="fc" id="L29">        this.numberOfItemsX = numberOfItemsX;</span>
+<span class="fc" id="L30">        this.numberOfItemsY = numberOfItemsY;</span>
+        
+<span class="fc" id="L32">    }</span>
+
+    public void setOfferId(int offerId) {
+<span class="fc" id="L35">        this.offerId = offerId;</span>
+<span class="fc" id="L36">    }</span>
+
+    public void setIdItemX(String idItemX) {
+<span class="fc" id="L39">        this.idItemX = idItemX;</span>
+<span class="fc" id="L40">    }</span>
+
+    public void setIdItemY(String idItemY) {
+<span class="fc" id="L43">        this.idItemY = idItemY;</span>
+<span class="fc" id="L44">    }</span>
+
+    public void setNumberOfItemsX(int numberOfItemsX) {
+<span class="fc" id="L47">        this.numberOfItemsX = numberOfItemsX;</span>
+<span class="fc" id="L48">    }</span>
+
+    public void setNumberOfItemsY(int numberOfItemsY) {
+<span class="fc" id="L51">        this.numberOfItemsY = numberOfItemsY;</span>
+<span class="fc" id="L52">    }</span>
+
+    @Override
+    public int getOfferId() {
+<span class="fc" id="L56">        return offerId;</span>
+    }
+
+    public String getIdItemX() {
+<span class="fc" id="L60">        return idItemX;</span>
+    }
+
+    public String getIdItemY() {
+<span class="fc" id="L64">        return idItemY;</span>
+    }
+
+    public int getNumberOfItemsX() {
+<span class="fc" id="L68">        return numberOfItemsX;</span>
+    }
+
+    public int getNumberOfItemsY() {
+<span class="fc" id="L72">        return numberOfItemsY;</span>
+    }
+
+    @Override
+    public boolean isOfferIdSame(Object obj) {
+
+<span class="fc" id="L78">        SeveralXgetseveralY b24sp = (SeveralXgetseveralY) obj;</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        return b24sp.getOfferId() == this.offerId;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
